@@ -1,20 +1,21 @@
 package LL;
 
-public class MakeLL {
+
+public class ListNode {
     public int val;
-    public MakeLL next;
+    public ListNode next;
 
     // Default constructor
-    public MakeLL() {}
+    public ListNode() {}
 
     // Constructor to initialize value
-    public MakeLL(int val) {
+    public ListNode(int val) {
         this.val = val;
         this.next = null;
     }
 
     // Constructor to initialize value and next pointer link
-    public MakeLL(int val, MakeLL next) {
+    public ListNode(int val, ListNode next) {
         this.val = val;
         this.next = next;
     }
