@@ -1,4 +1,69 @@
 package LinkedList;
 
+
+import LL.MakeLL;
+
 public class DeleteNodeInLinkedList {
+
+    // Here Only Node Is Given And You Don't Have Access To Head So What You Have To DO Just
+    // Do Node.val == Node.next.val
+
+    public static void deleteNode(MakeLL node) {
+        //    ListNode temp = node.next;
+
+        //     node.val = temp.val;
+        //    node.next = temp.next;
+
+
+
+         MakeLL prev = node;
+        while (node.next != null) {
+            node.val = node.next.val;
+            prev = node;
+            node = node.next;
+        }
+
+
+        if(prev!=null){
+            prev.next=null;
+        }
+    }
+
+
+    public static void main(String[] args) {
+        int[] nums = {4, 5, 1, 9};
+        MakeLL head = new MakeLL(nums[0]);
+        MakeLL curr = head;
+        MakeLL targetNode = null;
+
+        int targetVal =5;
+
+        if(nums[0]==targetVal){
+            targetNode=head;
+
+        }
+
+        for(int i=1;i<nums.length;i++){
+            curr.next = new MakeLL(nums[i]);
+
+            curr = curr.next;
+            if(nums[i]==targetVal){
+                targetNode=curr;
+            }
+        }
+
+        if(targetNode!=null){
+            deleteNode(targetNode);
+        }
+        MakeLL temp = head;
+
+        while(temp!=null){
+            System.out.print(temp.val + (temp.next != null ? " -> " : ""));
+            temp = temp.next;
+        }
+
+
+
+
+    }
 }
